@@ -27,7 +27,7 @@ describe('Working with Strings', function() {
   it('concatenate two strings using plus operator', function() {
     var firstName = 'Jhon';
     var lastName  = 'Doe';
-    var fullName;
+    var fullName = firstName + " " + lastName;
 
     assert.equal('Jhon Doe', fullName);
   });
@@ -36,14 +36,14 @@ describe('Working with Strings', function() {
     var numberOfWeekDays = 7;
     var weekIntro        = 'A week have';
     var weekOutro        = 'days';
-    var sentence;
+    var sentence = weekIntro + " " + numberOfWeekDays + " " + weekOutro;
 
     assert.equal('A week have 7 days', sentence);
   })
 
   it('calculate the number of characters of a string', function() {
     var name   = 'Jhon Doe';
-    var length;
+    var length = name.length;
 
     assert.equal(8, length);
   })
