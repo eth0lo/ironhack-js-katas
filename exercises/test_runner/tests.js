@@ -7,23 +7,23 @@ describe('Working with Numbers', function() {
   // assert.equal(<expression>, <expressionExpectation>);
 
   it('sum', function() {
-    assert.equal(3 + 4, 0);
+    assert.equal(3 + 4, 7);
   })
 
   it('difference', function() {
-    assert.equal(4 - 2, 0);
+    assert.equal(4 - 2, 2);
   })
 
   it('multiplaction', function() {
-    assert.equal(3 * 2, 0);
+    assert.equal(3 * 2, 6);
   })
 
   it('division', function() {
-    assert.equal(6 / 2, 0);
+    assert.equal(6 / 2, 3);
   })
 
   it('modulus', function() {
-    assert.equal(10 % 3, 0);
+    assert.equal(10 % 3, 1);
   })
 
   it('equality', function() {
@@ -31,7 +31,7 @@ describe('Working with Numbers', function() {
     var number2  = 5;
     var equality = number1 == number2;
 
-    assert.equal(equality, false);
+    assert.equal(equality, true);
   })
 
   it('equality with type cohersion', function() {
@@ -39,7 +39,7 @@ describe('Working with Numbers', function() {
     var string   = '5';
     var equality = number == string;
 
-    assert.equal(equality, false);
+    assert.equal(equality, true);
   })
 
   it('equality with type cohersion -null-', function() {
@@ -63,7 +63,7 @@ describe('Working with Numbers', function() {
     var string   = '5';
     var equality = number === string;
 
-    assert.equal(equality, true);
+    assert.equal(equality, false);
   })
 
   it('using variables to do operations', function() {
@@ -71,14 +71,16 @@ describe('Working with Numbers', function() {
     // <numberOfWeeks>
     var numberOfWeeks      = 5;
     var numberOfDaysInWeek = 7;
-    var totalNumberOfDays;
+    var totalNumberOfDays = numberOfWeeks * numberOfDaysInWeek;
 
-    assert.equal(35, totalNumberOfDays);
+    assert.equal(totalNumberOfDays, 35);
   })
 
   it('transforming a number to string', function() {
     // Note: don't use parseInt
-    assert.strictEqual('5', 5);
+    var number = 5;
+    var n = number.toString();
+    assert.strictEqual('5', n);
   })
 
 })
@@ -92,11 +94,11 @@ describe('Working with Strings', function() {
   // assert.equal(<expression>, <expressionExpectation>);
 
   it('create a string without using variable declaration', function() {
-    assert.equal('Jhon Doe', '');
+    assert.equal('Jhon Doe', 'Jhon Doe');
   });
 
   it('create a string using a variable declaration', function() {
-    var name;
+    var name = 'Jhon Doe';
 
     assert.equal('Jhon Doe', name);
   });
@@ -104,7 +106,7 @@ describe('Working with Strings', function() {
   it('concatenate two strings using plus operator', function() {
     var name    = 'HAL';
     var version = '9000';
-    var model;
+    var model = name + version;
 
     assert.equal('HAL9000', model);
   });
@@ -112,7 +114,7 @@ describe('Working with Strings', function() {
   it('concatenate two strings using plus operator', function() {
     var firstName = 'Jhon';
     var lastName  = 'Doe';
-    var fullName;
+    var fullName = firstName + " " + lastName;
 
     assert.equal('Jhon Doe', fullName);
   });
@@ -121,14 +123,14 @@ describe('Working with Strings', function() {
     var numberOfWeekDays = 7;
     var weekIntro        = 'A week have';
     var weekOutro        = 'days';
-    var sentence;
+    var sentence = weekIntro + ' ' + numberOfWeekDays + ' ' + weekOutro;
 
     assert.equal('A week have 7 days', sentence);
   })
 
   it('calculate the number of characters of a string', function() {
     var name   = 'Jhon Doe';
-    var length;
+    var length = name.length;
 
     assert.equal(8, length);
   })
@@ -138,7 +140,7 @@ describe('Working with Strings', function() {
     var string2 = 'Jhon Doe';
     var equality = string1 == string2
 
-    assert.equal(equality, false);
+    assert.equal(equality, true);
   })
 
   it('equality with case sensitive', function() {
@@ -146,7 +148,7 @@ describe('Working with Strings', function() {
     var string2 = 'jhon doe';
     var equality = string1 == string2
 
-    assert.equal(equality, true);
+    assert.equal(equality, false);
   })
 
   it('equality with type cohersion -null-', function() {
@@ -170,20 +172,21 @@ describe('Working with Strings', function() {
     var string2 = undefined;
     var equality = string1 === string2
 
-    assert.equal(equality, true);
+    assert.equal(equality, false);
   })
 
   it('transform a string into a number', function() {
     var number = '325';
+    var n = parseInt(number)
 
-    assert.strictEqual(325, number);
+    assert.strictEqual(325, n);
   });
 
   it('transform a tring in a array', function() {
     var model = 'HAL9000';
-    var array;
+    var array = model.split('');
 
-    assert.equal(['H','A','L','9','0','0','0'], array);
+    assert.deepEqual(['H','A','L','9','0','0','0'], array);
   });
 })
 
@@ -196,14 +199,14 @@ describe('Working with Arrays', function() {
   // assert.equal(<expression>, <expressionExpectation>);
 
   it('create an array without the new operator', function() {
-    var array;
+    var array = [1, 2, 3];
 
     assert.isArray(array);
   })
 
   it('calculates the numbers of item in an array', function() {
     var fruits = ['orange', 'apple', 'banana', 'pineapple'];
-    var length;
+    var length = fruits.length;
 
     assert.equal(4, length);
   })
@@ -211,6 +214,7 @@ describe('Working with Arrays', function() {
   it('adds an element to the begining of the array', function() {
     var fruits = ['apple', 'banana', 'pineapple'];
     var orange = 'orange';
+    fruits.unshift(orange)
 
     assert.deepEqual(['orange', 'apple', 'banana', 'pineapple'], fruits)
   })
@@ -218,28 +222,31 @@ describe('Working with Arrays', function() {
   it('adds an element to the end of the array', function() {
     var fruits    = ['orange', 'apple', 'banana'];
     var pineapple = 'pineapple';
+    fruits.push(pineapple)
 
     assert.deepEqual(['orange', 'apple', 'banana', 'pineapple'], fruits)
   })
 
   it('remove an element at the begining of the array', function() {
     var fruits    = ['orange', 'apple', 'banana', 'pineapple'];
+    fruits.shift()
 
     assert.deepEqual(['apple', 'banana', 'pineapple'], fruits)
   })
 
   it('remove an element at the end of the array', function() {
     var fruits = ['orange', 'apple', 'banana', 'pineapple'];
+    fruits.pop()
 
     assert.deepEqual(['orange', 'apple', 'banana'], fruits)
   })
 
-  it('equality', function() {
+  it('cdx', function() {
     var fruits1 = ['orange', 'apple', 'banana', 'pineapple'];
     var fruits2 = ['orange', 'apple', 'banana', 'pineapple'];
     var equality = fruits1 == fruits2;
 
-    assert.equal(equality, true)
+    assert.equal(equality, false)
   })
 
   it('equality with type checking', function() {
@@ -247,11 +254,12 @@ describe('Working with Arrays', function() {
     var fruits2 = ['orange', 'apple', 'banana', 'pineapple'];
     var equality = fruits1 === fruits2;
 
-    assert.equal(equality, true)
+    assert.equal(equality, false)
   })
 
   it('creates a string from an array', function() {
     var fruits = ['orange', 'apple', 'banana', 'pineapple'];
+    var string = fruits.join(', ');
 
     assert.equal('orange, apple, banana, pineapple', string)
   })
@@ -264,13 +272,18 @@ describe('Working with Functions', function() {
   it('returning a number', function() {
     // Create a function called sum that recives 4 arguments and return the
     // sum of all of them
-
+    function sum(num1, num2, num3, num4) {
+      return num1 + num2 + num3 + num4;
+    }
     assert.equal(sum.length, 4);
     assert.equal(sum(1,2,3,4), 10);
   })
 
   it('returning a string', function() {
     // Create a function called shout that appends two exclamation marks at the end
+    function shout(x){
+      return x + '!!'
+    }
 
     assert.equal(shout.length, 1);
     assert.equal(shout('Hohoho'), 'Hohoho!!');
@@ -285,6 +298,12 @@ describe('Working with Functions', function() {
     // var result = sum(5);
     //  -> result should be 8
     // Note: This is what makes "currying" a function posible
+
+    function sum(param) {
+      return function sum(param2) {
+        return param + param2;
+      }
+    }
     var result;
 
     assert.equal(sum.length, 1);
@@ -302,6 +321,13 @@ describe('Working with Functions', function() {
     // speak('Jhon Doe', yellAtHim) -> 'Jhon Doe!!!'
     // speak('Jhon Doe', salutation) -> 'Hi Jhon Doe!'
     // Note: This is the basic construction for all "callbacks"
+    var speak = function(fullName, aFunction) {
+      return aFunction(fullName);
+    }
+
+    var speak = function(fullName,aFunction) {
+      return aFunction(fullName);
+    }
 
     var yellAtHim = function(fullName) {
       return fullName+'!!!';
@@ -323,7 +349,7 @@ describe('Working with Functions', function() {
 
     var fnWithVariable = function() {
       nonExistedVar;
-      var nonExistedVar = 7;
+  
     }
 
     assert.throw(fnWithVariable, ReferenceError);
@@ -336,7 +362,7 @@ describe('Working with Functions', function() {
       return this;
     }
 
-    assert.deepEqual(context(), context);
+    assert.deepEqual(context(), window);
   })
 })
 
@@ -345,6 +371,9 @@ describe('Working with Arrays and Functions', function() {
   it('using map', function() {
     // Use map to sum two to each element
     var numbers = [1, 2, 3, 4];
+    numbers = numbers.map(function(num) {
+      return num + 2;
+  });
 
     assert.deepEqual([3, 4, 5, 6], numbers);
   })
@@ -353,31 +382,43 @@ describe('Working with Arrays and Functions', function() {
     // Use reduce to sum all numbers in the array
     // Note: you can use reduceRight if you want
     var numbers = [1, 2, 3, 4];
-    var result;
+    var result = numbers.reduce(function(a, b) {
+      return a + b;
+    });
 
     assert.equal(10, result);
   })
 
   it('using filter', function() {
     // Use filter to find the odd numbers in an array
+    function oddNumbers(element) {
+      return element %2 != 0;
+    }
     var numbers = [1, 2, 3, 4];
-    var odds;
+    var odds = numbers.filter(oddNumbers);
 
-    assert.deepEqual([2, 4], odds);
+    assert.deepEqual([1 , 3], odds);
   })
 
   it('using every', function() {
     // Use every to find if all numbers are even
+    function evenNumbers(element){
+      return element %2 == 0;
+    }
     var numbers = [1, 3, 5, 7];
-    var areEvens;
+    var areEvens = numbers.every(evenNumbers);
 
-    assert.equal(areEvens, true);
+    assert.equal(areEvens, false);
   })
 
   it('using some', function() {
     // Use some to find if there is a odd number in the list
+    function oddNumbers(element){
+      return element %2 !=0;
+    }
+
     var numbers = [1, 3, 5, 6];
-    var haveOdds;
+    var haveOdds = numbers.some(oddNumbers);
 
     assert.equal(haveOdds, true);
   })
