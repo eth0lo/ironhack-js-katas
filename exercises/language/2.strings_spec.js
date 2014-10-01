@@ -12,10 +12,7 @@ describe('Working with Strings', function() {
 
   it('create a string using a variable declaration', function() {
     var name = 'Jhon Doe';
-<<<<<<< HEAD
-=======
 
->>>>>>> 7a34461a3b554dc8f2eaa5e3e76e27b506b6a6ff
     assert.equal('Jhon Doe', name);
   });
 
@@ -30,11 +27,7 @@ describe('Working with Strings', function() {
   it('concatenate two strings using plus operator', function() {
     var firstName = 'Jhon';
     var lastName  = 'Doe';
-<<<<<<< HEAD
-    var fullName = firstName + ' ' + lastName;
-=======
     var fullName = firstName + " " + lastName;
->>>>>>> 7a34461a3b554dc8f2eaa5e3e76e27b506b6a6ff
 
     assert.equal('Jhon Doe', fullName);
   });
@@ -43,11 +36,7 @@ describe('Working with Strings', function() {
     var numberOfWeekDays = 7;
     var weekIntro        = 'A week have';
     var weekOutro        = 'days';
-<<<<<<< HEAD
     var sentence = weekIntro + ' ' + numberOfWeekDays + ' ' + weekOutro;
-=======
-    var sentence = weekIntro + " " + numberOfWeekDays + " " + weekOutro;
->>>>>>> 7a34461a3b554dc8f2eaa5e3e76e27b506b6a6ff
 
     assert.equal('A week have 7 days', sentence);
   })
@@ -100,24 +89,16 @@ describe('Working with Strings', function() {
   })
 
   it('transform a string into a number', function() {
-<<<<<<< HEAD
     var number = '325';
     var n = parseInt(number)
-=======
-    var number = parseInt('325')
->>>>>>> 7a34461a3b554dc8f2eaa5e3e76e27b506b6a6ff
 
     assert.strictEqual(325, n);
   });
 
-<<<<<<< HEAD
   it('transform a tring in a array', function() {
     var model = 'HAL9000';
     var array = model.split('');
 
     assert.equal(['H','A','L','9','0','0','0'].toString(), array.toString());
   });
-=======
-  "hello"
->>>>>>> 7a34461a3b554dc8f2eaa5e3e76e27b506b6a6ff
 })
