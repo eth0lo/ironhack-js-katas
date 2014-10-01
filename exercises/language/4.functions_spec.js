@@ -54,6 +54,10 @@ describe('Working with Functions', function() {
     // speak('Jhon Doe', salutation) -> 'Hi Jhon Doe!'
     // Note: This is the basic construction for all "callbacks"
 
+    var speak = function(fullName,aFunction) {
+      return aFunction(fullName);
+    }
+
     var yellAtHim = function(fullName) {
       return fullName+'!!!';
     };
@@ -74,7 +78,7 @@ describe('Working with Functions', function() {
 
     var fnWithVariable = function() {
       nonExistedVar;
-      var nonExistedVar = 7;
+      nonExistedVar = 7;
     }
 
     assert.throw(fnWithVariable, ReferenceError);
