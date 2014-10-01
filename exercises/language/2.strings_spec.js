@@ -60,7 +60,7 @@ describe('Working with Strings', function() {
     var string2 = 'jhon doe';
     var equality = string1 == string2
 
-    assert.equal(equality, true);
+    assert.equal(equality, false);
   })
 
   it('equality with type cohersion -null-', function() {
