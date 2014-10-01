@@ -5,7 +5,9 @@ describe('Working with Functions', function() {
   it('returning a number', function() {
     // Create a function called sum that recives 4 arguments and return the
     // sum of all of them
-
+    function sum(num1, num2, num3, num4){
+      return num1 + num2 + num3 + num4
+    }
     assert.equal(sum.length, 4);
     assert.equal(sum(1,2,3,4), 10);
   })
