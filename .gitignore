@@ -20,7 +20,8 @@ coverage
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
-test_runner/tests.js
+
+exercises/test_runner/tests.js
 
 # Dependency directory
 # Commenting this out is preferred by some people, see
