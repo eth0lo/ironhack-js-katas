@@ -21,7 +21,7 @@ describe('Working with Arrays', function() {
 
   it('adds an element to the begining of the array', function() {
     var fruits = ['apple', 'banana', 'pineapple'];
-    var orange = 'orange';
+    var orange = fruits.unshift('orange')
 
     assert.deepEqual(['orange', 'apple', 'banana', 'pineapple'], fruits)
   })
