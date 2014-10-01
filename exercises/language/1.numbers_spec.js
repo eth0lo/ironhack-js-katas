@@ -73,14 +73,14 @@ describe('Working with Numbers', function() {
     var numberOfDaysInWeek = 7;
     var totalNumberOfDays = numberOfWeeks * numberOfDaysInWeek;
 
-    assert.equal(35, totalNumberOfDays);
+    assert.equal(totalNumberOfDays, 35);
   })
 
   it('transforming a number to string', function() {
     // Note: don't use parseInt
     var number = 5;
-    var number_string = number.toString();
-    assert.strictEqual('5', number_string);
+    var n = number.toString();
+    assert.strictEqual('5', n);
   })
 
 })
