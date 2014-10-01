@@ -84,7 +84,7 @@ describe('Working with Strings', function() {
     var string2 = undefined;
     var equality = string1 === string2
 
-    assert.equal(equality, true);
+    assert.equal(equality, false);
   })
 
   it('transform a string into a number', function() {
