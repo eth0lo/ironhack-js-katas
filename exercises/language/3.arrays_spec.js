@@ -68,7 +68,7 @@ describe('Working with Arrays', function() {
     var fruits2 = ['orange', 'apple', 'banana', 'pineapple'];
     var equality = fruits1 === fruits2;
 
-    assert.equal(equality, true)
+    assert.equal(equality, false)
   })
 
   it('creates a string from an array', function() {
