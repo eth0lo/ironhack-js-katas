@@ -78,7 +78,7 @@ describe('Working with Functions', function() {
 
     var fnWithVariable = function() {
       nonExistedVar;
-      nonExistedVar = 7;
+  
     }
 
     assert.throw(fnWithVariable, ReferenceError);
@@ -91,6 +91,6 @@ describe('Working with Functions', function() {
       return this;
     }
 
-    assert.deepEqual(context(), context);
+    assert.deepEqual(context(), window);
   })
 })
