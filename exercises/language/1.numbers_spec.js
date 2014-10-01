@@ -78,7 +78,9 @@ describe('Working with Numbers', function() {
 
   it('transforming a number to string', function() {
     // Note: don't use parseInt
-    assert.strictEqual('5', 5);
+    var number = 5;
+    var n = number.toString();
+    assert.strictEqual('5', n);
   })
 
 })
