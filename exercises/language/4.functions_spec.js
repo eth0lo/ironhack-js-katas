@@ -14,6 +14,9 @@ describe('Working with Functions', function() {
 
   it('returning a string', function() {
     // Create a function called shout that appends two exclamation marks at the end
+    function shout(x){
+      return x + '!!'
+    }
 
     assert.equal(shout.length, 1);
     assert.equal(shout('Hohoho'), 'Hohoho!!');
@@ -28,6 +31,11 @@ describe('Working with Functions', function() {
     // var result = sum(5);
     //  -> result should be 8
     // Note: This is what makes "currying" a function posible
+    function sum(x){
+      return function sum(y){
+       return x + y; 
+    }
+    }
     var result;
 
     assert.equal(sum.length, 1);
