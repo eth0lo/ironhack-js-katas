@@ -31,7 +31,7 @@ describe('Working with Numbers', function() {
     var number2  = 5;
     var equality = number1 == number2;
 
-    assert.equal(equality, false);
+    assert.equal(equality, true);
   })
 
   it('equality with type cohersion', function() {
