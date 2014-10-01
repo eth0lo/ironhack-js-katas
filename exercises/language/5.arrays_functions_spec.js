@@ -5,7 +5,7 @@ describe('Working with Arrays and Functions', function() {
     var numbers = [1, 2, 3, 4];
     numbers = numbers.map(function(num) {
       return num + 2;
-    });
+  });
 
     assert.deepEqual([3, 4, 5, 6], numbers);
   })
@@ -23,6 +23,9 @@ describe('Working with Arrays and Functions', function() {
 
   it('using filter', function() {
     // Use filter to find the odd numbers in an array
+    function oddNumbers(element) {
+      return element %2 != 0;
+    }
     var numbers = [1, 2, 3, 4];
     var odds = numbers.filter(function(num){
       return num % 2 != 0;
@@ -33,6 +36,9 @@ describe('Working with Arrays and Functions', function() {
 
   it('using every', function() {
     // Use every to find if all numbers are even
+    function evenNumbers(element){
+      return element %2 == 0;
+    }
     var numbers = [1, 3, 5, 7];
     var areEvens = numbers.every(function(num){
       return num % 2 == 0;
@@ -43,6 +49,10 @@ describe('Working with Arrays and Functions', function() {
 
   it('using some', function() {
     // Use some to find if there is a odd number in the list
+    function oddNumbers(element){
+      return element %2 !=0;
+    }
+
     var numbers = [1, 3, 5, 6];
     var haveOdds = numbers.some(function(num){
       return num % 2 != 0;
