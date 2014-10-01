@@ -5,13 +5,18 @@ describe('Working with Functions', function() {
   it('returning a number', function() {
     // Create a function called sum that recives 4 arguments and return the
     // sum of all of them
-
+    function sum(num1, num2, num3, num4) {
+      return num1 + num2 + num3 + num4;
+    }
     assert.equal(sum.length, 4);
     assert.equal(sum(1,2,3,4), 10);
   })
 
   it('returning a string', function() {
     // Create a function called shout that appends two exclamation marks at the end
+    function shout(string) {
+      return string += "!!"
+    }
 
     assert.equal(shout.length, 1);
     assert.equal(shout('Hohoho'), 'Hohoho!!');
@@ -26,6 +31,11 @@ describe('Working with Functions', function() {
     // var result = sum(5);
     //  -> result should be 8
     // Note: This is what makes "currying" a function posible
+    function sum(param) {
+      return function sum(param2) {
+        return param + param2;
+      }
+    }
     var result;
 
     assert.equal(sum.length, 1);
@@ -43,6 +53,9 @@ describe('Working with Functions', function() {
     // speak('Jhon Doe', yellAtHim) -> 'Jhon Doe!!!'
     // speak('Jhon Doe', salutation) -> 'Hi Jhon Doe!'
     // Note: This is the basic construction for all "callbacks"
+    var speak = function(fullName, aFunction) {
+      return aFunction(fullName);
+    }
 
     var yellAtHim = function(fullName) {
       return fullName+'!!!';
@@ -77,6 +90,6 @@ describe('Working with Functions', function() {
       return this;
     }
 
-    assert.deepEqual(context(), context);
+    assert.deepEqual(context(), window);
   })
 })
