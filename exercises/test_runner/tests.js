@@ -395,9 +395,11 @@ describe('Working with Arrays and Functions', function() {
       return element %2 != 0;
     }
     var numbers = [1, 2, 3, 4];
-    var odds = numbers.filter(oddNumbers);
+    var odds = numbers.filter(function(num){
+      return num % 2 != 0;
+    });
 
-    assert.deepEqual([1 , 3], odds);
+    assert.deepEqual([1, 3], odds);
   })
 
   it('using every', function() {
@@ -406,7 +408,9 @@ describe('Working with Arrays and Functions', function() {
       return element %2 == 0;
     }
     var numbers = [1, 3, 5, 7];
-    var areEvens = numbers.every(evenNumbers);
+    var areEvens = numbers.every(function(num){
+      return num % 2 == 0;
+    });
 
     assert.equal(areEvens, false);
   })
@@ -418,7 +422,9 @@ describe('Working with Arrays and Functions', function() {
     }
 
     var numbers = [1, 3, 5, 6];
-    var haveOdds = numbers.some(oddNumbers);
+    var haveOdds = numbers.some(function(num){
+      return num % 2 != 0;
+    });
 
     assert.equal(haveOdds, true);
   })
@@ -428,12 +434,15 @@ describe('Working with Objects', function() {
 
   it('creating an object', function() {
     // Create a object literal
-
+    obj = {}
     assert.deepEqual({}, obj);
   })
 
   it('constructor', function() {
     // Create an object called person using a contructor named Person
+    function Person() {
+    }
+    var person = new Person()
 
     assert.instanceOf(person, Person);
   })
@@ -441,6 +450,11 @@ describe('Working with Objects', function() {
   it('constructor with params', function() {
     // Create a constructor named Person that recives the <firstName> and the
     // <lastName> as parameters and create a new object called person using it
+    function Person(firstName, lastName){
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+    var person = new Person('Jhon', 'Doe');
 
     assert.instanceOf(person, Person);
     assert.equal(Person.length, 2);
@@ -453,6 +467,13 @@ describe('Working with Objects', function() {
   it('constructor with only one param', function() {
     // Create a constructor named Person that recives the <firstName> and the
     // <lastName> as one parameter and create a new object called person using it
+    
+    var name = {firstName: 'Jhon', lastName: 'Doe'};
+    function Person(person){
+      this.firstName = person.firstName;
+      this.lastName = person.lastName;
+    };
+    var person = new Person(name);
 
     assert.instanceOf(person, Person);
     assert.equal(Person.length, 1);
