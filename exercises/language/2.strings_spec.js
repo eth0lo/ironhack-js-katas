@@ -35,7 +35,7 @@ describe('Working with Strings', function() {
     var numberOfWeekDays = 7;
     var weekIntro        = 'A week have';
     var weekOutro        = 'days';
-    var sentence;
+    var sentence = weekIntro + ' ' + numberOfWeekDays + ' ' + weekOutro;
 
     assert.equal('A week have 7 days', sentence);
   })
