@@ -23,7 +23,7 @@ describe('Working with Numbers', function() {
   })
 
   it('modulus', function() {
-    assert.equal(10 % 3, 0);
+    assert.equal(10 % 3, 1);
   })
 
   it('equality', function() {
