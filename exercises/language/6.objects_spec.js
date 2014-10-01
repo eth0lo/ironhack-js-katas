@@ -36,7 +36,7 @@ describe('Working with Objects', function() {
     // Create a constructor named Person that recives the <firstName> and the
     // <lastName> as one parameter and create a new object called person using it
     
-    var name = {firstName: 'Jhon', lastName: 'Doe'};
+    var name = { firstName: 'Jhon', lastName: 'Doe' };
     function Person(person){
       this.firstName = person.firstName;
       this.lastName = person.lastName;
@@ -55,7 +55,14 @@ describe('Working with Objects', function() {
     // Create a constructor named Person that recives the <firstName> and the
     // <lastName> as one parameter, with a method that calculates the fullName
     // of it, and create a new object called person using it
+    var name = { firstName: 'Jhon', lastName: 'Doe' };
 
-    assert.equal(person.fullName(), 'Jhon Doe');
+    function Person(person) {
+      this.fullName = person.firstName + " " + person.lastName
+    }
+
+    var person = new Person(name)
+
+    assert.equal(person.fullName, 'Jhon Doe');
   })
 })
