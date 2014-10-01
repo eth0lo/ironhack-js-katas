@@ -27,9 +27,11 @@ describe('Working with Arrays and Functions', function() {
       return element %2 != 0;
     }
     var numbers = [1, 2, 3, 4];
-    var odds = numbers.filter(oddNumbers);
+    var odds = numbers.filter(function(num){
+      return num % 2 != 0;
+    });
 
-    assert.deepEqual([1 , 3], odds);
+    assert.deepEqual([1, 3], odds);
   })
 
   it('using every', function() {
@@ -38,7 +40,9 @@ describe('Working with Arrays and Functions', function() {
       return element %2 == 0;
     }
     var numbers = [1, 3, 5, 7];
-    var areEvens = numbers.every(evenNumbers);
+    var areEvens = numbers.every(function(num){
+      return num % 2 == 0;
+    });
 
     assert.equal(areEvens, false);
   })
@@ -50,7 +54,9 @@ describe('Working with Arrays and Functions', function() {
     }
 
     var numbers = [1, 3, 5, 6];
-    var haveOdds = numbers.some(oddNumbers);
+    var haveOdds = numbers.some(function(num){
+      return num % 2 != 0;
+    });
 
     assert.equal(haveOdds, true);
   })
