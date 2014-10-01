@@ -14,8 +14,8 @@ describe('Working with Functions', function() {
 
   it('returning a string', function() {
     // Create a function called shout that appends two exclamation marks at the end
-    function shout(string) {
-      return string += "!!"
+    function shout(x){
+      return x + '!!'
     }
 
     assert.equal(shout.length, 1);
@@ -31,6 +31,7 @@ describe('Working with Functions', function() {
     // var result = sum(5);
     //  -> result should be 8
     // Note: This is what makes "currying" a function posible
+
     function sum(param) {
       return function sum(param2) {
         return param + param2;
@@ -57,6 +58,10 @@ describe('Working with Functions', function() {
       return aFunction(fullName);
     }
 
+    var speak = function(fullName,aFunction) {
+      return aFunction(fullName);
+    }
+
     var yellAtHim = function(fullName) {
       return fullName+'!!!';
     };
@@ -77,7 +82,7 @@ describe('Working with Functions', function() {
 
     var fnWithVariable = function() {
       nonExistedVar;
-      var nonExistedVar = 7;
+  
     }
 
     assert.throw(fnWithVariable, ReferenceError);

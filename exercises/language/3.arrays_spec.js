@@ -67,7 +67,7 @@ describe('Working with Arrays', function() {
 
   it('creates a string from an array', function() {
     var fruits = ['orange', 'apple', 'banana', 'pineapple'];
-    string = fruits.join(", ")
+    var string = fruits.join(', ');
 
     assert.equal('orange, apple, banana, pineapple', string)
   })
