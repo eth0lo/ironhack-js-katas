@@ -12,13 +12,13 @@ describe('Working with Strings', function() {
 
   it('create a string using a variable declaration', function() {
     var name = 'Jhon Doe';
-    assert.equal('Jhon Doe', n);
+    assert.equal('Jhon Doe', name);
   });
 
   it('concatenate two strings using plus operator', function() {
     var name    = 'HAL';
     var version = '9000';
-    var model;
+    var model = name + version;
 
     assert.equal('HAL9000', model);
   });
@@ -26,7 +26,7 @@ describe('Working with Strings', function() {
   it('concatenate two strings using plus operator', function() {
     var firstName = 'Jhon';
     var lastName  = 'Doe';
-    var fullName;
+    var fullName = firstName + ' ' + lastName;
 
     assert.equal('Jhon Doe', fullName);
   });
