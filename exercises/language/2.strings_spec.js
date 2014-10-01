@@ -89,14 +89,15 @@ describe('Working with Strings', function() {
 
   it('transform a string into a number', function() {
     var number = '325';
+    var n = parseInt(number)
 
-    assert.strictEqual(325, number);
+    assert.strictEqual(325, n);
   });
 
   it('transform a tring in a array', function() {
     var model = 'HAL9000';
-    var array;
+    var array = model.split('');
 
-    assert.equal(['H','A','L','9','0','0','0'], array);
+    assert.equal(['H','A','L','9','0','0','0'].toString(), array.toString());
   });
 })
