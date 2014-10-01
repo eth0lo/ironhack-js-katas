@@ -46,6 +46,11 @@ describe('Working with Arrays', function() {
 
   it('remove an element at the end of the array', function() {
     var fruits = ['orange', 'apple', 'banana', 'pineapple'];
+    var index = fruits.indexOf('pineapple');
+
+    if (index > -1) {
+      fruits.splice(index,1);
+    }
 
     assert.deepEqual(['orange', 'apple', 'banana'], fruits)
   })
