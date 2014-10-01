@@ -7,7 +7,7 @@ describe('Working with Arrays', function() {
   // assert.equal(<expression>, <expressionExpectation>);
 
   it('create an array without the new operator', function() {
-    var array = [];
+    var array = [1, 2, 3];
 
     assert.isArray(array);
   })
@@ -21,41 +21,35 @@ describe('Working with Arrays', function() {
 
   it('adds an element to the begining of the array', function() {
     var fruits = ['apple', 'banana', 'pineapple'];
-    var orange = fruits.unshift('orange')
+    var orange = 'orange';
+    fruits.unshift(orange)
 
     assert.deepEqual(['orange', 'apple', 'banana', 'pineapple'], fruits)
   })
 
   it('adds an element to the end of the array', function() {
     var fruits    = ['orange', 'apple', 'banana'];
-    var pineapple = fruits.push('pineapple');
+    var pineapple = 'pineapple';
+    fruits.push(pineapple)
 
     assert.deepEqual(['orange', 'apple', 'banana', 'pineapple'], fruits)
   })
 
   it('remove an element at the begining of the array', function() {
     var fruits    = ['orange', 'apple', 'banana', 'pineapple'];
-    var index = fruits.indexOf('orange');
-
-    if (index > -1) {
-      fruits.splice(index,1);
-    }
+    fruits.shift()
 
     assert.deepEqual(['apple', 'banana', 'pineapple'], fruits)
   })
 
   it('remove an element at the end of the array', function() {
     var fruits = ['orange', 'apple', 'banana', 'pineapple'];
-    var index = fruits.indexOf('pineapple');
-
-    if (index > -1) {
-      fruits.splice(index,1);
-    }
+    fruits.pop()
 
     assert.deepEqual(['orange', 'apple', 'banana'], fruits)
   })
 
-  it('equality', function() {
+  it('cdx', function() {
     var fruits1 = ['orange', 'apple', 'banana', 'pineapple'];
     var fruits2 = ['orange', 'apple', 'banana', 'pineapple'];
     var equality = fruits1 == fruits2;

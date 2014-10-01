@@ -99,6 +99,6 @@ describe('Working with Strings', function() {
     var model = 'HAL9000';
     var array = model.split('');
 
-    assert.equal(['H','A','L','9','0','0','0'].toString(), array.toString());
+    assert.deepEqual(['H','A','L','9','0','0','0'], array);
   });
 })
