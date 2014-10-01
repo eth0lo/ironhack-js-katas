@@ -28,7 +28,7 @@ describe('Working with Arrays', function() {
 
   it('adds an element to the end of the array', function() {
     var fruits    = ['orange', 'apple', 'banana'];
-    var pineapple = 'pineapple';
+    var pineapple = fruits.push('pineapple');
 
     assert.deepEqual(['orange', 'apple', 'banana', 'pineapple'], fruits)
   })
