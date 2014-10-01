@@ -52,7 +52,7 @@ describe('Working with Strings', function() {
     var string2 = 'Jhon Doe';
     var equality = string1 == string2
 
-    assert.equal(equality, false);
+    assert.equal(equality, true);
   })
 
   it('equality with case sensitive', function() {
