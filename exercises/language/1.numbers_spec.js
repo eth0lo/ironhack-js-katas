@@ -71,9 +71,9 @@ describe('Working with Numbers', function() {
     // <numberOfWeeks>
     var numberOfWeeks      = 5;
     var numberOfDaysInWeek = 7;
-    var totalNumberOfDays;
+    var totalNumberOfDays = numberOfWeeks * numberOfDaysInWeek;
 
-    assert.equal(35, totalNumberOfDays);
+    assert.equal(totalNumberOfDays, 35);
   })
 
   it('transforming a number to string', function() {
