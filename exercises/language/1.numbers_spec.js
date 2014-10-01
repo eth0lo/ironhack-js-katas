@@ -19,7 +19,7 @@ describe('Working with Numbers', function() {
   })
 
   it('division', function() {
-    assert.equal(6 / 2, 0);
+    assert.equal(6 / 2, 3);
   })
 
   it('modulus', function() {
