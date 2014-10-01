@@ -11,9 +11,8 @@ describe('Working with Strings', function() {
   });
 
   it('create a string using a variable declaration', function() {
-    var name;
-
-    assert.equal('Jhon Doe', name);
+    var name = 'Jhon Doe';
+    assert.equal('Jhon Doe', n);
   });
 
   it('concatenate two strings using plus operator', function() {
