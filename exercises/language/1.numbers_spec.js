@@ -47,7 +47,7 @@ describe('Working with Numbers', function() {
     var number2  = null;
     var equality = number1 == number2;
 
-    assert.equal(equality, true);
+    assert.equal(equality, false);
   })
 
   it('equality with type cohersion -undefined-', function() {
@@ -63,7 +63,7 @@ describe('Working with Numbers', function() {
     var string   = '5';
     var equality = number === string;
 
-    assert.equal(equality, true);
+    assert.equal(equality, false);
   })
 
   it('using variables to do operations', function() {
