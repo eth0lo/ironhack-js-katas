@@ -186,7 +186,7 @@ describe('Working with Strings', function() {
     var model = 'HAL9000';
     var array = model.split('');
 
-    assert.equal(['H','A','L','9','0','0','0'].toString(), array.toString());
+    assert.deepEqual(['H','A','L','9','0','0','0'], array);
   });
 })
 
@@ -199,7 +199,7 @@ describe('Working with Arrays', function() {
   // assert.equal(<expression>, <expressionExpectation>);
 
   it('create an array without the new operator', function() {
-    var array = [];
+    var array = [1, 2, 3];
 
     assert.isArray(array);
   })
@@ -213,41 +213,35 @@ describe('Working with Arrays', function() {
 
   it('adds an element to the begining of the array', function() {
     var fruits = ['apple', 'banana', 'pineapple'];
-    var orange = fruits.unshift('orange')
+    var orange = 'orange';
+    fruits.unshift(orange)
 
     assert.deepEqual(['orange', 'apple', 'banana', 'pineapple'], fruits)
   })
 
   it('adds an element to the end of the array', function() {
     var fruits    = ['orange', 'apple', 'banana'];
-    var pineapple = fruits.push('pineapple');
+    var pineapple = 'pineapple';
+    fruits.push(pineapple)
 
     assert.deepEqual(['orange', 'apple', 'banana', 'pineapple'], fruits)
   })
 
   it('remove an element at the begining of the array', function() {
     var fruits    = ['orange', 'apple', 'banana', 'pineapple'];
-    var index = fruits.indexOf('orange');
-
-    if (index > -1) {
-      fruits.splice(index,1);
-    }
+    fruits.shift()
 
     assert.deepEqual(['apple', 'banana', 'pineapple'], fruits)
   })
 
   it('remove an element at the end of the array', function() {
     var fruits = ['orange', 'apple', 'banana', 'pineapple'];
-    var index = fruits.indexOf('pineapple');
-
-    if (index > -1) {
-      fruits.splice(index,1);
-    }
+    fruits.pop()
 
     assert.deepEqual(['orange', 'apple', 'banana'], fruits)
   })
 
-  it('equality', function() {
+  it('cdx', function() {
     var fruits1 = ['orange', 'apple', 'banana', 'pineapple'];
     var fruits2 = ['orange', 'apple', 'banana', 'pineapple'];
     var equality = fruits1 == fruits2;
@@ -278,13 +272,18 @@ describe('Working with Functions', function() {
   it('returning a number', function() {
     // Create a function called sum that recives 4 arguments and return the
     // sum of all of them
-
+    function sum(num1, num2, num3, num4) {
+      return num1 + num2 + num3 + num4;
+    }
     assert.equal(sum.length, 4);
     assert.equal(sum(1,2,3,4), 10);
   })
 
   it('returning a string', function() {
     // Create a function called shout that appends two exclamation marks at the end
+    function shout(x){
+      return x + '!!'
+    }
 
     assert.equal(shout.length, 1);
     assert.equal(shout('Hohoho'), 'Hohoho!!');
@@ -299,6 +298,12 @@ describe('Working with Functions', function() {
     // var result = sum(5);
     //  -> result should be 8
     // Note: This is what makes "currying" a function posible
+
+    function sum(param) {
+      return function sum(param2) {
+        return param + param2;
+      }
+    }
     var result;
 
     assert.equal(sum.length, 1);
@@ -316,6 +321,13 @@ describe('Working with Functions', function() {
     // speak('Jhon Doe', yellAtHim) -> 'Jhon Doe!!!'
     // speak('Jhon Doe', salutation) -> 'Hi Jhon Doe!'
     // Note: This is the basic construction for all "callbacks"
+    var speak = function(fullName, aFunction) {
+      return aFunction(fullName);
+    }
+
+    var speak = function(fullName,aFunction) {
+      return aFunction(fullName);
+    }
 
     var yellAtHim = function(fullName) {
       return fullName+'!!!';
@@ -337,7 +349,7 @@ describe('Working with Functions', function() {
 
     var fnWithVariable = function() {
       nonExistedVar;
-      var nonExistedVar = 7;
+  
     }
 
     assert.throw(fnWithVariable, ReferenceError);
@@ -350,7 +362,7 @@ describe('Working with Functions', function() {
       return this;
     }
 
-    assert.deepEqual(context(), context);
+    assert.deepEqual(context(), window);
   })
 })
 
