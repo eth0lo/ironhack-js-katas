@@ -3,11 +3,11 @@ describe('Working with Contexts', function() {
   it('change the context of a function call', function() {
     // Write a function "fullName" that concatenates the <firstName> and
     // <lastName> then executed in the context of "person"
-    var personFullName;
-    var person = {
-      firstName: 'Jhon',
-      lastName: 'Doe'
+    var person = { firstName: 'Jhon', lastName: 'Doe' }
+    fullName = function(person){
+      return this.firstName + " " + this.lastName;
     }
+    var personFullName = fullName.call(person);
 
     assert.equal(personFullName, 'Jhon Doe')
   })
@@ -19,6 +19,10 @@ describe('Working with Contexts', function() {
     var mazda = {
       model: 'mazda 3'
     };
+    var accelerate = function(kmh, seconds) {
+      return this.model + ' accelerates to ' + kmh + ' in ' + seconds + ' seconds';
+    }
+    acceleration = accelerate.call(mazda, 150, 30);
 
     assert.equal(acceleration, 'mazda 3 accelerates to 150 in 30 seconds');
   })
@@ -30,6 +34,10 @@ describe('Working with Contexts', function() {
     var mazda = {
       model: 'mazda 3'
     };
+    var accelerate = function(kmh, seconds) {
+      return this.model + ' accelerates to ' + kmh + ' in ' + seconds + ' seconds';
+    }
+    acceleration = accelerate.apply(mazda, [150, 30]);
 
     assert.equal(acceleration, 'mazda 3 accelerates to 150 in 30 seconds');
   })
@@ -41,6 +49,10 @@ describe('Working with Contexts', function() {
     var mazda = {
       model: 'mazda 3'
     };
+    var accelerate = function(kmh, seconds) {
+      return this.model + ' accelerates to ' + kmh + ' in ' + seconds + ' seconds';
+    }.bind(mazda)
+    acceleration = accelerate(150, 30);
 
     assert.equal(acceleration, 'mazda 3 accelerates to 150 in 30 seconds');
   })
